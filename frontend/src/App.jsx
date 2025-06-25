@@ -14,6 +14,7 @@ import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from './context/AuthContext';
 import MyListings from './components/MyListings';
 import AboutPage from './components/AboutPage';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/edit-house/:id" element={<EditHouse />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/about" element={<AboutPage />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
               <Footer />
             </div>
@@ -44,4 +46,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
