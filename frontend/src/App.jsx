@@ -13,6 +13,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from './context/AuthContext';
 import MyListings from './components/MyListings';
+import AboutPage from './components/AboutPage';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/listing" element={<CreateListing />} /> {/* Add this */}
                 <Route path="/edit-house/:id" element={<EditHouse />} />
                 <Route path="/cart" element={<Cart />} />
+                <Route path="/about" element={<AboutPage />} />
               </Routes>
               <Footer />
             </div>
