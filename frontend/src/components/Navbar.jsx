@@ -44,6 +44,21 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
+              <li>
+                <Link to="/house" className="hover:text-blue-400 transition">
+                  Houses
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-blue-400 transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-blue-400 transition">
+                  Contact Us
+                </Link>
+              </li>
               {isLoggedIn && (
                 <>
                   <li>
@@ -73,12 +88,14 @@ const Navbar = () => {
                 </>
               )}
             </ul>
-
-            {/* Cart Button */}
-            {isLoggedIn &&
-              <Link
+          </div>
+           {/* Login/Signup or Logout Buttons cart button */}
+            <div className="space-x-2  flex justify-end">
+              {isLoggedIn ? (
+                <div  className=" hidden md:flex items-center space-x-2">
+                  <Link
                 to="/cart"
-                className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition"
+                className="flex items-center px-4 py-2 w-28 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -96,17 +113,14 @@ const Navbar = () => {
                 </svg>
                 <span>Cart</span>
               </Link>
-            }
 
-            {/* Login/Signup or Logout Buttons */}
-            <div className="space-x-4">
-              {isLoggedIn ? (
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition"
                 >
                   Logout
                 </button>
+                </div>
               ) : (
                 <>
                   <Link
@@ -124,7 +138,6 @@ const Navbar = () => {
                 </>
               )}
             </div>
-          </div>
 
           {/* Burger Button for Mobile */}
           <button
