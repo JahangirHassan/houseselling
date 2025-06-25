@@ -61,7 +61,7 @@ app.listen(8080, () => {
     console.log("app is listing on port: 8080");
 });
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/wanderapp";
+const MONGO_URL = "mongodb+srv://jahangirhassanofficial641:jahangir123@house.zm8mfjn.mongodb.net/";
 
 async function main() {
     await mongoose.connect(MONGO_URL);
