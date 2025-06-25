@@ -44,6 +44,21 @@ const Navbar = () => {
                   Home
                 </Link>
               </li>
+              <li>
+                <Link to="/" className="hover:text-blue-400 transition">
+                  Houses
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-blue-400 transition">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/" className="hover:text-blue-400 transition">
+                  Contact Us
+                </Link>
+              </li>
               {isLoggedIn && (
                 <>
                   <li>
