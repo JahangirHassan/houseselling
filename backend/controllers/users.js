@@ -66,7 +66,7 @@ module.exports.isLoggedIn = (req, res) => {
     // User is logged in
     return res
       .status(200)
-      .json({ message: "User is logged in.", loggedIn: true, username: req.user.username });
+      .json({ message: "User is logged in.", loggedIn: true, username: req.user.username, role: req.user.role });
   } else {
     // User is not logged in
     return res.status(200).json({ message: "User is logged out.", loggedIn: false });

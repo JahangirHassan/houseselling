@@ -7,7 +7,19 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const { isLoggedIn, setIsLoggedIn, userRole } = useContext(AuthContext);
+  const [user, setUser] = useState(null);
 
+  // Check login status on initial load
+  useEffect(() => {
+        axios
+            .get('http://localhost:8080/is-logged-in', { withCredentials: true })
+            .then((response) => {
+                setUser(response.data.role);
+            })
+            .catch((error) => {
+                console.error('Error checking login status', error);
+            });
+    }, []);
   // Logout handler
   const handleLogout = () => {
     axios
@@ -59,9 +71,9 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </li>
-              {isLoggedIn && (
+              { isLoggedIn && userRole === "admin" && (
                 <>
-                  <li>
+                  {/* <li>
                     <Link
                       to="/listing"
                       className="hover:text-blue-400 transition"
@@ -76,14 +88,12 @@ const Navbar = () => {
                     >
                       Show My Listings
                     </Link>
-                  </li>
-                  {isLoggedIn && userRole === "admin" && (
+                  </li> */}
                     <li>
                       <Link to="/admin" className="hover:text-blue-400 transition">
                         Admin Panel
                       </Link>
                     </li>
-                  )}
 
                 </>
               )}
