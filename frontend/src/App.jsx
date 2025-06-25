@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import HouseList from "./components/HouseList";
+// import HouseList from "./components/HouseList";
 import HouseDetails from "./components/HouseDetails";
 import Footer from "./components/Footer";
 import CreateListing from "./components/CreateListing";
@@ -26,7 +26,8 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/admin" element={<AdminPanel />} />
-                <Route path="/" element={<HouseList />} />
+                {/* <Route path="/" element={<HouseList />} /> */}
+                <Route path="/" element={<HomePage />} />
                 <Route path="/my-listings" element={<MyListings />} />
                 <Route path="/house/:id" element={<HouseDetails />} />
                 <Route path="/login" element={<Login />} /> {/* Add this */}
@@ -46,4 +47,4 @@ function App() {
   )
 }
 
-export default App
+export default App;

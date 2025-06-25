@@ -7,7 +7,19 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const { isLoggedIn, setIsLoggedIn, userRole } = useContext(AuthContext);
+  const [user, setUser] = useState(null);
 
+  // Check login status on initial load
+  useEffect(() => {
+        axios
+            .get('http://localhost:8080/is-logged-in', { withCredentials: true })
+            .then((response) => {
+                setUser(response.data.role);
+            })
+            .catch((error) => {
+                console.error('Error checking login status', error);
+            });
+    }, []);
   // Logout handler
   const handleLogout = () => {
     axios
@@ -45,7 +57,7 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-blue-400 transition">
+                <Link to="/house" className="hover:text-blue-400 transition">
                   Houses
                 </Link>
               </li>
@@ -55,13 +67,13 @@ const Navbar = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/" className="hover:text-blue-400 transition">
+                <Link to="/contact" className="hover:text-blue-400 transition">
                   Contact Us
                 </Link>
               </li>
-              {isLoggedIn && (
+              { isLoggedIn && userRole === "admin" && (
                 <>
-                  <li>
+                  {/* <li>
                     <Link
                       to="/listing"
                       className="hover:text-blue-400 transition"
@@ -76,24 +88,24 @@ const Navbar = () => {
                     >
                       Show My Listings
                     </Link>
-                  </li>
-                  {isLoggedIn && userRole === "admin" && (
+                  </li> */}
                     <li>
                       <Link to="/admin" className="hover:text-blue-400 transition">
                         Admin Panel
                       </Link>
                     </li>
-                  )}
 
                 </>
               )}
             </ul>
-
-            {/* Cart Button */}
-            {isLoggedIn &&
-              <Link
+          </div>
+           {/* Login/Signup or Logout Buttons cart button */}
+            <div className="space-x-2  flex justify-end">
+              {isLoggedIn ? (
+                <div  className=" hidden md:flex items-center space-x-2">
+                  <Link
                 to="/cart"
-                className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition"
+                className="flex items-center px-4 py-2 w-28 bg-gray-700 hover:bg-gray-600 text-white rounded-md transition"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -111,17 +123,14 @@ const Navbar = () => {
                 </svg>
                 <span>Cart</span>
               </Link>
-            }
 
-            {/* Login/Signup or Logout Buttons */}
-            <div className="space-x-4">
-              {isLoggedIn ? (
                 <button
                   onClick={handleLogout}
                   className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md transition"
                 >
                   Logout
                 </button>
+                </div>
               ) : (
                 <>
                   <Link
@@ -139,7 +148,6 @@ const Navbar = () => {
                 </>
               )}
             </div>
-          </div>
 
           {/* Burger Button for Mobile */}
           <button
