@@ -2,7 +2,7 @@ import './App.css'
 import Navbar from "./components/Navbar";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
-import HouseList from "./components/HouseList";
+// import HouseList from "./components/HouseList";
 import HouseDetails from "./components/HouseDetails";
 import Footer from "./components/Footer";
 import CreateListing from "./components/CreateListing";
@@ -14,7 +14,6 @@ import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from './context/AuthContext';
 import MyListings from './components/MyListings';
 import AboutPage from './components/AboutPage';
-import Contact from './components/Contact';
 
 function App() {
   return (
@@ -26,7 +25,8 @@ function App() {
               <Navbar />
               <Routes>
                 <Route path="/admin" element={<AdminPanel />} />
-                <Route path="/" element={<HouseList />} />
+                {/* <Route path="/" element={<HouseList />} /> */}
+                <Route path="/" element={<HomePage />} />
                 <Route path="/my-listings" element={<MyListings />} />
                 <Route path="/house/:id" element={<HouseDetails />} />
                 <Route path="/login" element={<Login />} /> {/* Add this */}
@@ -35,7 +35,6 @@ function App() {
                 <Route path="/edit-house/:id" element={<EditHouse />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/about" element={<AboutPage />} />
-                <Route path="/contact" element={<Contact />} />
               </Routes>
               <Footer />
             </div>
