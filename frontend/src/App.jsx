@@ -14,6 +14,7 @@ import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from './context/AuthContext';
 import MyListings from './components/MyListings';
 import AboutPage from './components/AboutPage';
+import HomePage from './components/HomePage';
 
 function App() {
   return (
