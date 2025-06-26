@@ -28,14 +28,14 @@ const SideBar=()=>{
         hover:text-white hover:bg-blue-600"
         >
           <FaBox />
-          <Link to="/listing" className="hidden md:inline ">Add Product</Link>
+          <Link to="/listing" className="hidden md:inline ">Add House Detail</Link>
         </li>
         <li
           className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
         hover:text-white hover:bg-blue-600"
         >
           <FaBox />
-          <Link to="/listings" className="hidden md:inline ">All Products</Link>
+          <Link to="/listings" className="hidden md:inline ">All Houses Details</Link>
         </li>
       </ul>
 
