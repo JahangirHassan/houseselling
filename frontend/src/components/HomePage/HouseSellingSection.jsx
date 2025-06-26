@@ -1,6 +1,22 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 
 const HouseSellingSection = () => {
+
+  
+  useEffect(() => {
+    // Fetch house listings from the backend
+    const fetchHouses = async () => {
+      try {
+        const response = await axios.get('http://localhost:8080/listings'); // Adjust URL if needed
+        setHouses(response.data); // Set the fetched houses in state
+      } catch (err) {
+        console.error("Error fetching house listings:", err);
+      }
+    };
+
+    fetchHouses();
+  }, []);
+
   return (
     <section className="py-10 bg-gray-50">
       <div className="container mx-auto px-4">
