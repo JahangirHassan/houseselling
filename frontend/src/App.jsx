@@ -18,6 +18,9 @@ import HomePage from './components/HomePage';
 import MyAdmin from './components/MyAdmin';
 import SideBar from './components/SideBaar';
 import GetAllusers from './components/GetAllusers';
+import PrivateRoute from './context/Protected';
+import HouseList from './components/HouseList';
+
 
 import { useEffect } from 'react';
 
@@ -40,16 +43,17 @@ function LayoutWrapper() {
       {NavbarComponent && <NavbarComponent />}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/listings" element={<MyListings />} />
-        <Route path="/house/:id" element={<HouseDetails />} />
+        <Route path="/listings" element={<PrivateRoute><MyListings /></PrivateRoute>} />
+        <Route path="/house/:id" element={<PrivateRoute><HouseDetails /></PrivateRoute>} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/listing" element={<CreateListing />} />
-        <Route path="/edit-house/:id" element={<EditHouse />} />
+        <Route path="/listing" element={<PrivateRoute><CreateListing /></PrivateRoute>} />
+        <Route path="/edit-house/:id" element={<PrivateRoute><EditHouse /></PrivateRoute>} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/admin" element={<MyAdmin />} />
-        <Route path="/users" element={<GetAllusers />} />
+        <Route path="/house" element={<HouseList />} />
+        <Route path="/admin" element={<PrivateRoute><MyAdmin /></PrivateRoute>} />
+        <Route path="/users" element={<PrivateRoute><GetAllusers /></PrivateRoute>} />
       </Routes>
       {FooterComponent && <FooterComponent />}
     </div>
