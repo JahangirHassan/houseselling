@@ -15,6 +15,7 @@ const HouseDetails = () => {
   const [showPopup, setShowPopup] = useState(false);
   const { isLoggedIn } = useContext(AuthContext);
 
+  console.log("id:", id);
   useEffect(() => {
     const fetchHouseDetails = async () => {
       try {

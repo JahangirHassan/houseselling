@@ -6,7 +6,7 @@ import axios from "axios";
 const Navbar = () => {
   const navigate = useNavigate();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const { isLoggedIn, setIsLoggedIn, userRole } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [user, setUser] = useState(null);
 
   // Check login status on initial load
@@ -20,6 +20,8 @@ const Navbar = () => {
                 console.error('Error checking login status', error);
             });
     }, []);
+
+    console.log("Navbar isLoggedIn:", isLoggedIn);
   // Logout handler
   const handleLogout = () => {
     axios
@@ -222,7 +224,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              {isLoggedIn && userRole === "admin" && (
+              {isLoggedIn && user === "admin" && (
                 <li>
                   <Link
                     to="/admin"
