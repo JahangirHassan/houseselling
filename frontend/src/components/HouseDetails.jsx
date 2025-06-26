@@ -107,7 +107,7 @@ const HouseDetails = () => {
           <h1 className="text-2xl font-bold text-gray-800">{house.title}</h1>
           <p className="text-gray-500 mt-2">{house.location}</p>
           <p className="text-blue-500 font-semibold text-xl mt-4">
-            {house.price}
+            ${house.price}
           </p>
           <p className="text-gray-700 mt-4">{house.description}</p>
 
