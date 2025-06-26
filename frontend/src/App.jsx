@@ -8,7 +8,7 @@ import Footer from "./components/Footer";
 import CreateListing from "./components/CreateListing";
 import EditHouse from "./components/EditHouse";
 import Cart from "./components/Cart";
-import AdminPanel from './components/AdminPanel';
+//import AdminPanel from './components/AdminPanel';
 import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import { CartProvider } from "./context/CartContext";
 import { AuthProvider } from './context/AuthContext';
@@ -20,6 +20,7 @@ import SideBar from './components/SideBaar';
 import GetAllusers from './components/GetAllusers';
 import PrivateRoute from './context/Protected';
 import HouseList from './components/HouseList';
+import Contact from './components/Contact';
 
 
 import { useEffect } from 'react';
@@ -52,6 +53,7 @@ function LayoutWrapper() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/house" element={<HouseList />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<PrivateRoute><MyAdmin /></PrivateRoute>} />
         <Route path="/users" element={<PrivateRoute><GetAllusers /></PrivateRoute>} />
       </Routes>

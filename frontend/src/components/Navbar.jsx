@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import logo from "../../public/logo.jpg";
 import axios from "axios";
 
 const Navbar = () => {
@@ -21,7 +22,6 @@ const Navbar = () => {
             });
     }, []);
 
-    console.log("Navbar isLoggedIn:", isLoggedIn);
   // Logout handler
   const handleLogout = () => {
     axios
@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo */}
           <a href="/" className="text-2xl font-bold text-blue-400">
-            HouseFinder
+            <img src={logo} alt="Logo" className="h-12 w-30 inline-block mr-2" />
           </a>
 
           {/* Desktop Navigation */}
