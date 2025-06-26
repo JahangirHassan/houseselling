@@ -71,7 +71,7 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </li>
-              { isLoggedIn && userRole === "admin" && (
+              { isLoggedIn && user === "admin" && (
                 <>
                   {/* <li>
                     <Link

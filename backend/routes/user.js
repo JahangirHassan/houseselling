@@ -24,4 +24,7 @@ router.get("/logout", userController.logout);
 // Is loggedIn Route:
 router.get("/is-logged-in", userController.isLoggedIn);
 
+//getAllUsers
+router.get("/users", wrapAsync(userController.getAllUsers));
+
 module.exports = router;

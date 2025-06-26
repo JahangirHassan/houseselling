@@ -17,12 +17,13 @@ import AboutPage from './components/AboutPage';
 import HomePage from './components/HomePage';
 import MyAdmin from './components/MyAdmin';
 import SideBar from './components/SideBaar';
+import GetAllusers from './components/GetAllusers';
 
 import { useEffect } from 'react';
 
 function LayoutWrapper() {
   const location = useLocation();
-  const layoutAPaths = ['/admin/listings','/admin', ];
+  const layoutAPaths = ['/listings','/admin','/users','/listing',];
   const layoutBPaths = ['/','/login', '/signup','/about','/listing' , '/house', '/edit-house', '/cart', ];
 
   const currentPath = location.pathname;
@@ -39,7 +40,7 @@ function LayoutWrapper() {
       {NavbarComponent && <NavbarComponent />}
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/admin/listings" element={<MyListings />} />
+        <Route path="/listings" element={<MyListings />} />
         <Route path="/house/:id" element={<HouseDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
@@ -48,6 +49,7 @@ function LayoutWrapper() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/admin" element={<MyAdmin />} />
+        <Route path="/users" element={<GetAllusers />} />
       </Routes>
       {FooterComponent && <FooterComponent />}
     </div>

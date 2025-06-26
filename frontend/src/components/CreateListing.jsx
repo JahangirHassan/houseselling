@@ -95,7 +95,7 @@ function CreateListingForm() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 flex items-center justify-center px-2">
+    <div className=" grow ml-16 md:ml-64 h-full lg:h-screen  min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 flex items-center justify-center px-2">
       <form
         onSubmit={handleSubmit}
         className="bg-white max-w-4xl w-full p-8 rounded-lg shadow-lg mt-4 mb-4"
