@@ -12,9 +12,9 @@ const UserArray = [
 
 const MyAdmin = () => {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <div className="grow ml-16 md:ml-64 h-full lg:h-screen bg-gray-100 text-gray-900">
       {/* Sidebar */}
-      <aside className="w-full md:w-1/4 bg-blue-800 text-white px-6 py-8 shadow-lg">
+      {/* <aside className="w-full md:w-1/4 bg-blue-800 text-white px-6 py-8 shadow-lg">
         <h1 className="text-3xl font-bold mb-10 text-center md:text-left">
           HouseSelling
         </h1>
@@ -32,13 +32,13 @@ const MyAdmin = () => {
             Add New Product
           </Link>
           <Link
-            to=""
+            to="listings"
             className="block hover:text-blue-200 transition text-center md:text-left"
           >
             All Products
           </Link>
         </nav>
-      </aside>
+      </aside> */}
 
       {/* Main Content */}
       <main className="w-full md:w-3/4 p-6">
