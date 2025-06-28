@@ -40,7 +40,7 @@ const MyListings = () => {
 
     return (
         <div className="container mx-auto p-4 grow ml-16 md:ml-64 h-full lg:h-screen">
-            <h2 className="text-2xl font-bold mb-4 text-blue-500">My Listings</h2>
+            <h2 className="text-2xl font-bold mb-4 text-blue-500">All Houses Details</h2>
 
             {loading && <p>Loading...</p>}  {/* Show loading text */}
 
@@ -49,7 +49,7 @@ const MyListings = () => {
 
             {/* Show "No listings found" only if there are no listings and no loading state */}
             {listings.length === 0 && !loading && !error ? (
-                <p>No listings found.</p>  // Show no listings message when data is loaded and empty
+                <p>No House Detail found.</p>  // Show no listings message when data is loaded and empty
             ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     {listings.map((listing) => (

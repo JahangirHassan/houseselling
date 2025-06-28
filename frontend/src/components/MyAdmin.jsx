@@ -1,69 +1,59 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import img1 from "/user1.avif";
-import img2 from "/user6.avif";
-import img3 from "/user7.avif";
-
-const UserArray = [
-  { id: 1, img: img1, name: "Salan Jamshaid", address: "Bahawalpur" },
-  { id: 2, img: img2, name: "Ustad Hameed", address: "Sialkot" },
-  { id: 3, img: img3, name: "Abdul Muhaimin", address: "Islamabad" },
-];
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const MyAdmin = () => {
-  return (
-    <div className="grow ml-16 md:ml-64 h-full lg:h-screen bg-gray-100 text-gray-900">
-      {/* Sidebar */}
-      {/* <aside className="w-full md:w-1/4 bg-blue-800 text-white px-6 py-8 shadow-lg">
-        <h1 className="text-3xl font-bold mb-10 text-center md:text-left">
-          HouseSelling
-        </h1>
-        <nav className="space-y-4 text-lg font-medium">
-          <Link
-            to=""
-            className="block hover:text-blue-200 transition text-center md:text-left"
-          >
-            Users
-          </Link>
-          <Link
-            to=""
-            className="block hover:text-blue-200 transition text-center md:text-left"
-          >
-            Add New Product
-          </Link>
-          <Link
-            to="listings"
-            className="block hover:text-blue-200 transition text-center md:text-left"
-          >
-            All Products
-          </Link>
-        </nav>
-      </aside> */}
+   const [users, setUsers] = useState([]);
 
-      {/* Main Content */}
-      <main className="w-full md:w-3/4 p-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {UserArray.map((user) => (
-            <div
-              key={user.id}
-              className="bg-white rounded-xl shadow-md hover:shadow-lg transition"
-            >
-              <div className="h-64 overflow-hidden rounded-t-xl">
-                <img
-                  src={user.img}
-                  alt={user.name}
-                  className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-              <div className="bg-blue-600 text-white text-center py-5 rounded-b-xl">
-                <h2 className="text-xl font-semibold">{user.name}</h2>
-                <p className="text-sm opacity-90">{user.address}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/users", { withCredentials: true })
+      .then((response) => {
+        setUsers(response.data.users);
+      })
+      .catch((error) => {
+        console.error("Error fetching users", error);
+      });
+  }, []);
+
+  return (
+    <div className="grow ml-4 md:ml-64 h-full lg:h-screen bg-gray-100 text-gray-900 p-4">
+  <h2 className="text-2xl font-bold mb-4 text-blue-500">All Users</h2>
+
+  {/* Responsive Table Container */}
+  <div className="overflow-x-auto bg-white rounded-lg shadow">
+    <table className="min-w-full divide-y divide-gray-200">
+      <thead className="bg-gray-100">
+        <tr>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+            UserName
+          </th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+            Email
+          </th>
+          <th className="px-6 py-3 text-left text-xs font-medium text-gray-700 uppercase tracking-wider">
+            Role
+          </th>
+        </tr>
+      </thead>
+      <tbody className="bg-white divide-y divide-gray-200">
+        {users.map((user) => (
+          <tr key={user._id} className="hover:bg-gray-50">
+            <td className="px-6 py-4 font-bold text-gray-900 whitespace-nowrap">
+              {user.username}
+            </td>
+            <td className="px-6 py-4 text-gray-600 whitespace-nowrap">
+              {user.email}
+            </td>
+            <td className="px-6 py-4 text-gray-600 whitespace-nowrap">
+                {user.role}
+            </td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
   );
 };
 

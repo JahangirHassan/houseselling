@@ -1,5 +1,6 @@
 
 import React from "react";
+import { FcSalesPerformance } from "react-icons/fc";
 import {
   FaUsers,
   FaBox,
@@ -37,6 +38,14 @@ const SideBar=()=>{
           <FaBox />
           <Link to="/listings" className="hidden md:inline ">All Houses Details</Link>
         </li>
+         <li
+          className="flex items-center py-3 px-2 space-x-4 hover:rounded hover:cursor-pointer 
+        hover:text-white hover:bg-blue-600"
+        >
+          <FcSalesPerformance />
+          <Link to="/sales-summary" className="hidden md:inline ">Sales Summary</Link>
+        </li>
+        
       </ul>
 
        {/* <aside className="w-full md:w-1/4 bg-blue-800 text-white px-6 py-8 shadow-lg">

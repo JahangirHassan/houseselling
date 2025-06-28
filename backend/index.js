@@ -16,6 +16,7 @@ const passport = require("passport");
 const localStrategy = require("passport-local");
 const User = require("./models/user");
 const cors = require('cors');
+const salesRoutes = require('./routes/sales');
 
 const app = express();
 
@@ -92,6 +93,8 @@ app.use("/", users);
 
 // Using Carts here through Express Router:
 app.use("/", carts);
+// Using Sales here through Express Router:
+app.use('/', salesRoutes);
 
 
 

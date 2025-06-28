@@ -21,13 +21,14 @@ import GetAllusers from './components/GetAllusers';
 import PrivateRoute from './context/Protected';
 import HouseList from './components/HouseList';
 import Contact from './components/Contact';
+import SalesSummary from './components/SalesSummary';
 
 
 import { useEffect } from 'react';
 
 function LayoutWrapper() {
   const location = useLocation();
-  const layoutAPaths = ['/listings','/admin','/users','/listing',];
+  const layoutAPaths = ['/listings','/admin','/users','/listing','/sales-summary'];
   const layoutBPaths = ['/','/login', '/signup','/about','/listing' , '/house', '/edit-house', '/cart', ];
 
   const currentPath = location.pathname;
@@ -55,6 +56,8 @@ function LayoutWrapper() {
         <Route path="/house" element={<HouseList />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/admin" element={<PrivateRoute><MyAdmin /></PrivateRoute>} />
+        <Route path="/sales-summary" element={<PrivateRoute><SalesSummary /></PrivateRoute>} />
+
         <Route path="/users" element={<PrivateRoute><GetAllusers /></PrivateRoute>} />
       </Routes>
       {FooterComponent && <FooterComponent />}
