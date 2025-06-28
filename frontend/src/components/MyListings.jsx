@@ -39,7 +39,7 @@ const MyListings = () => {
     }, [currentUserId]);  // Trigger effect when currentUserId changes
 
     return (
-        <div className="container mx-auto p-4">
+        <div className="container mx-auto p-4 grow ml-16 md:ml-64 h-full lg:h-screen">
             <h2 className="text-2xl font-bold mb-4 text-blue-500">My Listings</h2>
 
             {loading && <p>Loading...</p>}  {/* Show loading text */}

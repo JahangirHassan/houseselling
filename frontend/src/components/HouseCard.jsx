@@ -34,7 +34,7 @@ const HouseCard = ({ id, image, title, location, price, description, seller  }) 
       <div className="mt-4">
         <h2 className="text-lg font-bold text-gray-800">{title}</h2>
         <p className="text-gray-500">{location}</p>
-        <p className="text-blue-500 font-semibold mt-2">{price}</p>
+        <p className="text-blue-500 font-semibold mt-2">${price}</p>
       </div>
     </div>
   );

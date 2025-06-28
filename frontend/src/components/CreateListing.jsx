@@ -95,19 +95,19 @@ function CreateListingForm() {
 
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 flex items-center justify-center px-2">
+    <div className=" grow ml-16 md:ml-64 h-full lg:h-screen  min-h-screen bg-gradient-to-br from-purple-200 to-indigo-200 flex items-center justify-center px-2">
       <form
         onSubmit={handleSubmit}
         className="bg-white max-w-4xl w-full p-8 rounded-lg shadow-lg mt-4 mb-4"
       >
         <h2 className="text-3xl font-bold mb-8 text-center text-gray-800">
-          Create New Listing
+          Add New House Detail
         </h2>
 
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
         {success && (
           <div className="bg-green-100 text-green-700 p-4 rounded-lg shadow-lg text-center mb-4">
-            New Listing Created Successfully!
+            Added new House Detail Successfully!
           </div>
         )}
 

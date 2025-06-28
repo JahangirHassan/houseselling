@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link, redirect, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import logo from "../../public/logo.jpg";
 import axios from "axios";
 
 const Navbar = () => {
   const navigate = useNavigate();
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const { isLoggedIn, setIsLoggedIn, userRole } = useContext(AuthContext);
+  const { isLoggedIn, setIsLoggedIn } = useContext(AuthContext);
   const [user, setUser] = useState(null);
 
   // Check login status on initial load
@@ -20,6 +21,7 @@ const Navbar = () => {
                 console.error('Error checking login status', error);
             });
     }, []);
+
   // Logout handler
   const handleLogout = () => {
     axios
@@ -45,7 +47,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           {/* Logo */}
           <a href="/" className="text-2xl font-bold text-blue-400">
-            HouseFinder
+            <img src={logo} alt="Logo" className="h-12 w-30 inline-block mr-2" />
           </a>
 
           {/* Desktop Navigation */}
@@ -71,7 +73,7 @@ const Navbar = () => {
                   Contact Us
                 </Link>
               </li>
-              { isLoggedIn && userRole === "admin" && (
+              { isLoggedIn && user === "admin" && (
                 <>
                   {/* <li>
                     <Link
@@ -222,7 +224,7 @@ const Navbar = () => {
                 </Link>
               </li>
 
-              {isLoggedIn && userRole === "admin" && (
+              {isLoggedIn && user === "admin" && (
                 <li>
                   <Link
                     to="/admin"

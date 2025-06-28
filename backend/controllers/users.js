@@ -72,3 +72,12 @@ module.exports.isLoggedIn = (req, res) => {
     return res.status(200).json({ message: "User is logged out.", loggedIn: false });
   }
 };
+
+module.exports.getAllUsers = async (req, res) => {
+  try {
+    const users = await User.find({});
+    res.status(200).json({message:"Users fetched successfully" ,users});
+  } catch (error) {
+    res.status(500).json({ error: "Error fetching users." });
+  }
+};
