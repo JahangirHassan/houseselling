@@ -75,33 +75,6 @@ function App() {
       </AuthProvider>
     </CartProvider>
   );
-    <>
-      <CartProvider>
-        <AuthProvider>
-          <Router>
-            <div className="min-h-screen flex flex-col">
-              <Navbar />
-              <Routes>
-                <Route path="/admin" element={<AdminPanel />} />
-                {/* <Route path="/" element={<HouseList />} /> */}
-                <Route path="/" element={<HomePage />} />
-                <Route path="/my-listings" element={<MyListings />} />
-                <Route path="/house/:id" element={<HouseDetails />} />
-                <Route path="/login" element={<Login />} /> {/* Add this */}
-                <Route path="/signup" element={<SignUp />} /> {/* Add this */}
-                <Route path="/listing" element={<CreateListing />} /> {/* Add this */}
-                <Route path="/edit-house/:id" element={<EditHouse />} />
-                <Route path="/cart" element={<Cart />} />
-                <Route path="/about" element={<AboutPage />} />
-                <Route path="/myadmin" element={<MyAdmin/>} />
-              </Routes>
-              <Footer />
-            </div>
-          </Router>   
-        </AuthProvider>
-      </CartProvider>
-    </>
-  )
 }
 
 export default App;
